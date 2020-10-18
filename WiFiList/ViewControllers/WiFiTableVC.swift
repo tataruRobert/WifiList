@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WiFiTableVC: UIViewController {
     
@@ -15,6 +16,18 @@ class WiFiTableVC: UIViewController {
     private let addButton = UIButton(type: .system)
 
     private let trashButton = UIButton(type: .system)
+    
+    lazy var fetchResultsController: NSFetchedResultsController<Wifi> = {
+        let fethRequest: NSFetchRequest<Wifi> = Wifi.fetchRequest()
+        let favoriteDescriptor = NSSortDescriptor(keyPath: \Wifi.isFavorite, ascending: false)
+        let nameDescriptor = NSSortDescriptor(keyPath: \Wifi.networkName, ascending: true)
+        fethRequest.sortDescriptors = [favoriteDescriptor, nameDescriptor]
+        let context = CoreDataStack.shared.mainContext
+        let fetchResultResultsController = NSFetchedResultsController(fetchRequest: fethRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        //fetchResultResultsController.delegate =
+        
+        return fetchResultResultsController
+    }()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -28,7 +41,11 @@ class WiFiTableVC: UIViewController {
         guard let navigationController = navigationController else {return}
         navigationController.navigationBar.prefersLargeTitles = true
         //navigationController.navigationBar.largeTitleTextAttributes
-        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont]
+        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.roundedFont(ofSize: 35, weight: .bold)]
     }
 
+}
+
+extension WiFiTableVC: NSFetchedResultsControllerDelegate {
+    
 }

@@ -17,6 +17,7 @@
 		1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */; };
 		1EA9B8D9253C8AC30041E705 /* WifiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8D8253C8AC30041E705 /* WifiModel.swift */; };
 		1EA9B8DF253C8D2E0041E705 /* UIFont+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */; };
+		1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8E3253C92100041E705 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTableVC.swift; sourceTree = "<group>"; };
 		1EA9B8D8253C8AC30041E705 /* WifiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiModel.swift; sourceTree = "<group>"; };
 		1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Rounded.swift"; sourceTree = "<group>"; };
+		1EA9B8E3253C92100041E705 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */,
 				1EA9B8D8253C8AC30041E705 /* WifiModel.swift */,
+				1EA9B8E3253C92100041E705 /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
 				1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */,

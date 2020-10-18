@@ -18,6 +18,9 @@
 		1EA9B8D9253C8AC30041E705 /* WifiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8D8253C8AC30041E705 /* WifiModel.swift */; };
 		1EA9B8DF253C8D2E0041E705 /* UIFont+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */; };
 		1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8E3253C92100041E705 /* CoreDataStack.swift */; };
+		1EA9B8EE253C9A6B0041E705 /* WifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */; };
+		1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8F6253C9F620041E705 /* Colors.swift */; };
+		1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		1EA9B8D8253C8AC30041E705 /* WifiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiModel.swift; sourceTree = "<group>"; };
 		1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Rounded.swift"; sourceTree = "<group>"; };
 		1EA9B8E3253C92100041E705 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiCell.swift; sourceTree = "<group>"; };
+		1EA9B8F6253C9F620041E705 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWifiVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +111,12 @@
 		1EA9B88D253C7A9B0041E705 /* WiFiList */ = {
 			isa = PBXGroup;
 			children = (
+				1EA9B8EB253C9A4A0041E705 /* Views */,
 				1EA9B8DD253C8D110041E705 /* Extenstions */,
 				1EA9B8CC253C86280041E705 /* ViewControllers */,
 				1EA9B8C4253C7ACF0041E705 /* Resources */,
 				1EA9B8C5253C7B2D0041E705 /* Model */,
+				1EA9B8F5253C9F520041E705 /* Utils */,
 				1EA9B89F253C7A9C0041E705 /* Info.plist */,
 			);
 			path = WiFiList;
@@ -157,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */,
+				1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +176,30 @@
 				1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */,
 			);
 			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		1EA9B8EB253C9A4A0041E705 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1EA9B8EC253C9A510041E705 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1EA9B8EC253C9A510041E705 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1EA9B8F5253C9F520041E705 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1EA9B8F6253C9F620041E705 /* Colors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,9 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA9B8EE253C9A6B0041E705 /* WifiCell.swift in Sources */,
+				1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */,
 				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
+				1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */,
 				1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */,
 				1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */,
 				1EA9B8DF253C8D2E0041E705 /* UIFont+Rounded.swift in Sources */,

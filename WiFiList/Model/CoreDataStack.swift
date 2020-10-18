@@ -13,7 +13,7 @@ class CoreDataStack {
     
     /// Access to the Persistent Container
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "WifiList")
+        let container = NSPersistentContainer(name: "WiFiList")
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error {
                 fatalError("Failed to load persistent store: \(error)")

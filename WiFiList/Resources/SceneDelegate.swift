@@ -22,9 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createVC() -> UINavigationController {
         let wifiTableVC = WiFiTableVC()
-        wifiTableVC.title = "Wifi List"
+        wifiTableVC.title = "Wifi"
+
         
         let navController = UINavigationController(rootViewController: wifiTableVC)
+        navController.navigationBar.tintColor = UIColor.myGlobalTint
         
         return navController
     }

@@ -13,7 +13,7 @@ func configure<T>(_ object: T, using closure: (inout T) -> Void) -> T {
     return object
 }
 
-class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
+class MyTextFieldView: UIView, UITextFieldDelegate {
 
     var labelText: String {
         get { textField.text ?? "" }
@@ -23,17 +23,17 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
     var color: UIColor = .secondaryLabel
 
     private let border = configure(CALayer()) {
-        $0.borderColor = UIColor.miBorderColor.cgColor
+        $0.borderColor = UIColor.myBorderColor.cgColor
         $0.borderWidth = 1
         $0.cornerRadius = 4
     }
 
     let textField = UITextField()
-    let label = MiWiFiPlaceholderLabel(textAlignment: .center, fontSize: 10)
+    let label = MyPlaceholderLabel(textAlignment: .center, fontSize: 10)
 
-    let activeColorCG = UIColor.miActiveBorderColor.cgColor
-    let inactiveColorCG = UIColor.miBorderColor.cgColor
-    let activeColor = UIColor.miActiveBorderColor
+    let activeColorCG = UIColor.myActiveBorderColor.cgColor
+    let inactiveColorCG = UIColor.myBorderColor.cgColor
+    let activeColor = UIColor.myActiveBorderColor
     let inactiveColor = UIColor.label.withAlphaComponent(0.7)
 
     let padding: CGFloat = 8
@@ -58,7 +58,6 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .black
         translatesAutoresizingMaskIntoConstraints = false
         configureCointainer()
         configureTextField()
@@ -99,7 +98,11 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
         // Calling setActive here to update changes if user toggles dark mode
         setActiveColor(isActive)
         border.frame = bounds
+        //border.mask(withRect: label.frame.insetBy(dx: -3, dy: 0), inverse: true)
         border.mask(withRect: label.frame.insetBy(dx: -3, dy: 0), inverse: true)
+
+        
+        
     }
 
 
@@ -150,6 +153,7 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
 
         label.font = .systemFont(ofSize: 12)
+        
         label.textColor = UIColor.label.withAlphaComponent(0.7)
 
         NSLayoutConstraint.activate([
@@ -162,7 +166,7 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
     private func configureRevealButton() {
         addSubview(revealButton)
         revealButton.translatesAutoresizingMaskIntoConstraints = false
-        revealButton.tintColor = .miBorderColor
+        revealButton.tintColor = .myBorderColor
         revealButton.addTarget(self, action: #selector(toggleSecureEntry(_:)), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
@@ -200,13 +204,13 @@ class MiWiFiTextFieldView: UIView, UITextFieldDelegate {
         self.isActive = isActive
         let logic = {
             if isActive {
-                self.label.textColor = .miActiveBorderColor
-                self.revealButton.tintColor = .miActiveBorderColor
-                self.border.borderColor = UIColor.miActiveBorderColor.cgColor
+                self.label.textColor = .myActiveBorderColor
+                self.revealButton.tintColor = .myActiveBorderColor
+                self.border.borderColor = UIColor.myActiveBorderColor.cgColor
             } else {
                 self.label.textColor = UIColor.label.withAlphaComponent(0.7)
-                self.revealButton.tintColor = .miBorderColor
-                self.border.borderColor = UIColor.miBorderColor.cgColor
+                self.revealButton.tintColor = .myBorderColor
+                self.border.borderColor = UIColor.myBorderColor.cgColor
             }
         }
         if animated {

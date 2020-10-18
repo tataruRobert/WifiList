@@ -100,8 +100,9 @@ class WiFiTableVC: UIViewController {
             let navController = UINavigationController(rootViewController: addWifiVC)
             navController.modalPresentationStyle = .automatic
 
-            
+
             present(navController, animated: true)
+           
         }else {
             
         }

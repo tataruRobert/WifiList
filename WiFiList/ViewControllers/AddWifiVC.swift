@@ -34,8 +34,8 @@ class AddWifiVC: UIViewController {
     private let iconSegControl = UISegmentedControl()
     private let elementStackView = UIStackView()
     
-    private let networkTextField = MiWiFiTextFieldView(isSecureEntry: false, placeholder: "Network", autocorrectionType: .no, autocapitalizationType: .none, returnType: .continue, needsRevealButton: false)
-    private let passwordTextField = MiWiFiTextFieldView(isSecureEntry: true, placeholder: "Password", autocorrectionType: .no, autocapitalizationType: .none, returnType: .done, needsRevealButton: true)
+    private let networkTextField = MyTextFieldView(isSecureEntry: false, placeholder: "Network", autocorrectionType: .no, autocapitalizationType: .none, returnType: .continue, needsRevealButton: false)
+    private let passwordTextField = MyTextFieldView(isSecureEntry: true, placeholder: "Password", autocorrectionType: .no, autocapitalizationType: .none, returnType: .done, needsRevealButton: true)
     
     
     override func viewDidLoad() {

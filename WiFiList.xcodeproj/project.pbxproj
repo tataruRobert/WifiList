@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2B585D253CD20300124991 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B585C253CD20300124991 /* MyTextField.swift */; };
+		1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5861253CD2C700124991 /* MyTextFieldView.swift */; };
 		1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */; };
 		1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */; };
 		1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E2B585C253CD20300124991 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		1E2B5861253CD2C700124991 /* MyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextFieldView.swift; sourceTree = "<group>"; };
 		1EA9B88B253C7A9B0041E705 /* WiFiList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFiList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E2B585B253CD1EE00124991 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1E2B585C253CD20300124991 /* MyTextField.swift */,
+				1E2B5861253CD2C700124991 /* MyTextFieldView.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		1EA9B882253C7A9B0041E705 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +194,7 @@
 		1EA9B8EB253C9A4A0041E705 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E2B585B253CD1EE00124991 /* TextField */,
 				1EA9B8EC253C9A510041E705 /* Cells */,
 			);
 			path = Views;
@@ -335,7 +349,9 @@
 				1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */,
 				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
+				1E2B585D253CD20300124991 /* MyTextField.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
+				1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */,
 				1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */,
 				1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */,
 				1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */,

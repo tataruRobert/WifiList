@@ -151,5 +151,61 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension WiFiTableVC: NSFetchedResultsControllerDelegate {
-    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        wifiTableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let count = fetchedResultsController.fetchedObjects?.count {
+            if navigationItem.rightBarButtonItem == nil && count > 0 {
+                navigationItem.rightBarButtonItem = editButtonItem
+            } else if count == 0 {
+                navigationItem.rightBarButtonItem = nil
+            }
+        }
+
+        wifiTableView.endUpdates()
+    }
+
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+//                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+//                    atSectionIndex sectionIndex: Int,
+//                    for type: NSFetchedResultsChangeType) {
+//        let indexSet = IndexSet([sectionIndex])
+//        switch type {
+//        case .insert:
+//            wifiTableView.insertSections(indexSet, with: .fade)
+//        case .delete:
+//            wifiTableView.deleteSections(indexSet, with: .fade)
+//        default:
+//            print(#line, #file, "unexpected NSFetchedResultsChangeType: \(type)")
+//        }
+//    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            wifiTableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .move:
+            guard let indexPath = indexPath,
+                let newIndexPath = newIndexPath else { return }
+            let cell = wifiTableView.cellForRow(at: indexPath) as? WifiCell
+            cell?.updateViews()
+            wifiTableView.moveRow(at: indexPath, to: newIndexPath)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            wifiTableView.reloadRows(at: [indexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            wifiTableView.deleteRows(at: [indexPath], with: .automatic)
+        @unknown default:
+            print(#line, #file, "unknown NSFetchedResultsChangeType: \(type)")
+        }
+    }
+
 }

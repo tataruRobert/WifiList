@@ -191,9 +191,11 @@ class AddWifiVC: UIViewController {
         }
 
         guard let networkName = networkTextField.textField.text, !networkName.isEmpty else { return }
-        guard let password = passwordTextField.textField.text, !password.isEmpty else { return }
-
-        WifiController.shared.addWifi(networkName: networkName, password: password, iconName: icon.rawValue)
+        if let password = passwordTextField.textField.text{
+            WifiController.shared.addWifi(networkName: networkName, password: password, iconName: icon.rawValue)
+        }else{
+            WifiController.shared.addWifi(networkName: networkName, password: "", iconName: icon.rawValue)
+        }
         dismiss(animated: true)
     }
     

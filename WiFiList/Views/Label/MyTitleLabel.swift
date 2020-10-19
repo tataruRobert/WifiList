@@ -6,7 +6,7 @@
 //
 
 import Foundation
-<<<<<<< HEAD
+
 import UIKit
 class MyTitleLabel: UILabel {
 
@@ -34,5 +34,4 @@ class MyTitleLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
-=======
->>>>>>> bcbf973203ccc1869b7e30eea705e8e0adbd8ed4
+

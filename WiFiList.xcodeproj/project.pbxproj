@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E2B585D253CD20300124991 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B585C253CD20300124991 /* MyTextField.swift */; };
 		1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5861253CD2C700124991 /* MyTextFieldView.swift */; };
 		1E2B5868253CD60700124991 /* MyPlaceholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5867253CD60700124991 /* MyPlaceholderLabel.swift */; };
 		1E2B5870253CD85800124991 /* CALayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B586F253CD85800124991 /* CALayer+Ext.swift */; };
+		1E2B587F253DE36000124991 /* WifiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B587E253DE36000124991 /* WifiController.swift */; };
+		1E2B5884253DE4EF00124991 /* Wifi+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */; };
 		1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */; };
 		1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */; };
 		1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */; };
@@ -45,10 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E2B585C253CD20300124991 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		1E2B5861253CD2C700124991 /* MyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextFieldView.swift; sourceTree = "<group>"; };
 		1E2B5867253CD60700124991 /* MyPlaceholderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceholderLabel.swift; sourceTree = "<group>"; };
 		1E2B586F253CD85800124991 /* CALayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Ext.swift"; sourceTree = "<group>"; };
+		1E2B587E253DE36000124991 /* WifiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiController.swift; sourceTree = "<group>"; };
+		1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wifi+Convenience.swift"; sourceTree = "<group>"; };
 		1EA9B88B253C7A9B0041E705 /* WiFiList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFiList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +101,6 @@
 		1E2B585B253CD1EE00124991 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				1E2B585C253CD20300124991 /* MyTextField.swift */,
 				1E2B5861253CD2C700124991 /* MyTextFieldView.swift */,
 			);
 			path = TextField;
@@ -182,6 +183,8 @@
 				1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */,
 				1EA9B8D8253C8AC30041E705 /* WifiModel.swift */,
 				1EA9B8E3253C92100041E705 /* CoreDataStack.swift */,
+				1E2B587E253DE36000124991 /* WifiController.swift */,
+				1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,12 +365,13 @@
 				1EA9B8EE253C9A6B0041E705 /* WifiCell.swift in Sources */,
 				1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */,
 				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
+				1E2B5884253DE4EF00124991 /* Wifi+Convenience.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
-				1E2B585D253CD20300124991 /* MyTextField.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
 				1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */,
 				1E2B5870253CD85800124991 /* CALayer+Ext.swift in Sources */,
 				1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */,
+				1E2B587F253DE36000124991 /* WifiController.swift in Sources */,
 				1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */,
 				1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */,
 				1E2B5868253CD60700124991 /* MyPlaceholderLabel.swift in Sources */,
@@ -547,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robert-tataru..WiFiList";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robert-tataru.WiFiList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robert-tataru..WiFiList";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robert-tataru.WiFiList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

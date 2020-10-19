@@ -97,9 +97,10 @@ class WiFiTableVC: UIViewController {
     @objc private func roundButtonTapped(_ sender: UIButton) {
         if self.isEditing == false{
             let addWifiVC = AddWifiVC()
+            
             let navController = UINavigationController(rootViewController: addWifiVC)
             navController.modalPresentationStyle = .automatic
-
+                
 
             present(navController, animated: true)
            

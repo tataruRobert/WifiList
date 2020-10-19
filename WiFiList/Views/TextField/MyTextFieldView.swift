@@ -98,9 +98,7 @@ class MyTextFieldView: UIView, UITextFieldDelegate {
         // Calling setActive here to update changes if user toggles dark mode
         setActiveColor(isActive)
         border.frame = bounds
-        //border.mask(withRect: label.frame.insetBy(dx: -3, dy: 0), inverse: true)
         border.mask(withRect: label.frame.insetBy(dx: -3, dy: 0), inverse: true)
-
         
     }
 
@@ -115,6 +113,7 @@ class MyTextFieldView: UIView, UITextFieldDelegate {
     }
 
     #warning("Place textField and button in stackview and make sure to set priority and compression resistence on eye button")
+    
     private func configureTextField() {
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -129,14 +128,13 @@ class MyTextFieldView: UIView, UITextFieldDelegate {
         textField.minimumFontSize = 12
 
         if !textField.isSecureTextEntry {
-            textField.clearButtonMode = .whileEditing
+            //textField.clearButtonMode = .whileEditing
         }
 
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
-//            textField.trailingAnchor.constraint(equalTo: revealButton.leadingAnchor, constant: -padding),
         ])
 
         if textField.isSecureTextEntry {

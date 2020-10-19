@@ -26,6 +26,7 @@
 		1EA9B8EE253C9A6B0041E705 /* WifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */; };
 		1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8F6253C9F620041E705 /* Colors.swift */; };
 		1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */; };
+		1EE79F11253E20DB005DFA46 /* MyTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE79F10253E20DB005DFA46 /* MyTitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiCell.swift; sourceTree = "<group>"; };
 		1EA9B8F6253C9F620041E705 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWifiVC.swift; sourceTree = "<group>"; };
+		1EE79F10253E20DB005DFA46 /* MyTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				1E2B5867253CD60700124991 /* MyPlaceholderLabel.swift */,
+				1EE79F10253E20DB005DFA46 /* MyTitleLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
 				1E2B5884253DE4EF00124991 /* Wifi+Convenience.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
+				1EE79F11253E20DB005DFA46 /* MyTitleLabel.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
 				1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */,
 				1E2B5870253CD85800124991 /* CALayer+Ext.swift in Sources */,

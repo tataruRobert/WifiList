@@ -143,7 +143,7 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
         let wifi = fetchedResultsController.object(at: indexPath)
         cell?.wifi = wifi
         cell?.backgroundColor = .myBackground
-        //cell?.selectedBackgroundView = backgroundView
+        cell?.selectedBackgroundView = backgroundView
 
         return cell ?? UITableViewCell()
     }

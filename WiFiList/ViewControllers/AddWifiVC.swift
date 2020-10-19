@@ -62,7 +62,7 @@ class AddWifiVC: UIViewController {
         guard let wifi = wifi else { return }
         title = wifi.networkName
         networkTextField.textField.text = wifi.networkName
-//        passwordTextField.textField.text = KeychainWrapper.standard.string(forKey: wifi.passwordID?.uuidString ?? "No Password")
+        passwordTextField.textField.text = wifi.password
 
         if wifi.iconName == IconInfo.homeIconName.rawValue {
             iconSegControl.selectedSegmentIndex = 0

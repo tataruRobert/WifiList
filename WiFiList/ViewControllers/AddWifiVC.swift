@@ -233,3 +233,33 @@ class AddWifiVC: UIViewController {
    
 
 }
+
+extension AddWifiVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case passwordTextField.textField:
+            saveWifi()
+            passwordTextField.textField.resignFirstResponder()
+            networkTextField.textField.becomeFirstResponder()
+        case networkTextField.textField:
+            passwordTextField.textField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+
+        return false
+    }
+}
+
+
+extension AddWifiVC: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        presentAttemptToDismissActionSheet(saveHandler: { _ in
+            self.saveWifi()
+            self.dismiss(animated: true)
+        }, discardHandler: { _ in
+            self.dismiss(animated: true)
+        })
+    }
+}
+

@@ -111,31 +111,42 @@ class WiFiTableVC: UIViewController {
 
 }
 
-extension WiFiTableVC: UITableViewDelegate {
-    
-}
 
-extension WiFiTableVC: UITableViewDataSource {
+extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fetchedResultsController.sections?[section].numberOfObjects ?? 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView,
+                   shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView,
+                   didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
+        self.setEditing(true, animated: true)
+    }
+
+    func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView) {
+        print("\(#function)")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let backgroundView: UIView = {
             let view = UIView()
-            //view.backgroundColor = UIColor.miBackground
+            view.backgroundColor = UIColor.myBackground
             return view
         }()
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "WifiCell", for: indexPath) as? WifiCell
         let wifi = fetchedResultsController.object(at: indexPath)
         cell?.wifi = wifi
-        //cell?.backgroundColor = .miBackground
+        cell?.backgroundColor = .myBackground
         //cell?.selectedBackgroundView = backgroundView
 
         return cell ?? UITableViewCell()
     }
-    
     
 }
 

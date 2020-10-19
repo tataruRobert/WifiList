@@ -12,6 +12,7 @@
 		1E2B5870253CD85800124991 /* CALayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B586F253CD85800124991 /* CALayer+Ext.swift */; };
 		1E2B587F253DE36000124991 /* WifiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B587E253DE36000124991 /* WifiController.swift */; };
 		1E2B5884253DE4EF00124991 /* Wifi+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */; };
+		1E2B5889253DF5E200124991 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B5888253DF5E200124991 /* UIViewController+Alerts.swift */; };
 		1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */; };
 		1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */; };
 		1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */; };
@@ -20,7 +21,6 @@
 		1EA9B8A9253C7A9D0041E705 /* WiFiListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8A8253C7A9D0041E705 /* WiFiListTests.swift */; };
 		1EA9B8B4253C7A9D0041E705 /* WiFiListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8B3253C7A9D0041E705 /* WiFiListUITests.swift */; };
 		1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */; };
-		1EA9B8D9253C8AC30041E705 /* WifiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8D8253C8AC30041E705 /* WifiModel.swift */; };
 		1EA9B8DF253C8D2E0041E705 /* UIFont+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */; };
 		1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8E3253C92100041E705 /* CoreDataStack.swift */; };
 		1EA9B8EE253C9A6B0041E705 /* WifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */; };
@@ -51,6 +51,7 @@
 		1E2B586F253CD85800124991 /* CALayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Ext.swift"; sourceTree = "<group>"; };
 		1E2B587E253DE36000124991 /* WifiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiController.swift; sourceTree = "<group>"; };
 		1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wifi+Convenience.swift"; sourceTree = "<group>"; };
+		1E2B5888253DF5E200124991 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		1EA9B88B253C7A9B0041E705 /* WiFiList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFiList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA9B88E253C7A9B0041E705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EA9B890253C7A9B0041E705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		1EA9B8B3253C7A9D0041E705 /* WiFiListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiListUITests.swift; sourceTree = "<group>"; };
 		1EA9B8B5253C7A9D0041E705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiTableVC.swift; sourceTree = "<group>"; };
-		1EA9B8D8253C8AC30041E705 /* WifiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiModel.swift; sourceTree = "<group>"; };
 		1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Rounded.swift"; sourceTree = "<group>"; };
 		1EA9B8E3253C92100041E705 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1EA9B8ED253C9A6B0041E705 /* WifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiCell.swift; sourceTree = "<group>"; };
@@ -181,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				1EA9B897253C7A9B0041E705 /* WiFiList.xcdatamodeld */,
-				1EA9B8D8253C8AC30041E705 /* WifiModel.swift */,
 				1EA9B8E3253C92100041E705 /* CoreDataStack.swift */,
 				1E2B587E253DE36000124991 /* WifiController.swift */,
 				1E2B5883253DE4EF00124991 /* Wifi+Convenience.swift */,
@@ -203,6 +202,7 @@
 			children = (
 				1EA9B8DE253C8D2E0041E705 /* UIFont+Rounded.swift */,
 				1E2B586F253CD85800124991 /* CALayer+Ext.swift */,
+				1E2B5888253DF5E200124991 /* UIViewController+Alerts.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -373,10 +373,10 @@
 				1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */,
 				1E2B587F253DE36000124991 /* WifiController.swift in Sources */,
 				1EA9B88F253C7A9B0041E705 /* AppDelegate.swift in Sources */,
+				1E2B5889253DF5E200124991 /* UIViewController+Alerts.swift in Sources */,
 				1EA9B891253C7A9B0041E705 /* SceneDelegate.swift in Sources */,
 				1E2B5868253CD60700124991 /* MyPlaceholderLabel.swift in Sources */,
 				1EA9B8DF253C8D2E0041E705 /* UIFont+Rounded.swift in Sources */,
-				1EA9B8D9253C8AC30041E705 /* WifiModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

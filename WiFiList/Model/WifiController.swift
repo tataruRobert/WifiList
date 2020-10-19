@@ -6,7 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 import CoreData
 
 class WifiController {
@@ -61,5 +60,4 @@ class WifiController {
         }
     }
 }
-=======
->>>>>>> ba62ef6f5990e3aa258d5a948a6b7d3dfc48a1fe
+

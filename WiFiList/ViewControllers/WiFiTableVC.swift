@@ -148,6 +148,22 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
         return cell ?? UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !isEditing {
+            let wifi = fetchedResultsController.object(at: indexPath)
+            let detailVC = DetailVC(with: wifi)
+            navigationController?.pushViewController(detailVC, animated: true)
+        } else {
+            //selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if isEditing {
+            //selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
+        }
+    }
+    
 }
 
 extension WiFiTableVC: NSFetchedResultsControllerDelegate {

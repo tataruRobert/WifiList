@@ -27,6 +27,8 @@
 		1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8F6253C9F620041E705 /* Colors.swift */; };
 		1EA9B8FC253CA6A80041E705 /* AddWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */; };
 		1EE79F11253E20DB005DFA46 /* MyTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE79F10253E20DB005DFA46 /* MyTitleLabel.swift */; };
+		1EE79F21253F63FB005DFA46 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE79F20253F63FB005DFA46 /* DetailVC.swift */; };
+		1EE79F27253F6608005DFA46 /* WifiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE79F26253F6608005DFA46 /* WifiImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		1EA9B8F6253C9F620041E705 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWifiVC.swift; sourceTree = "<group>"; };
 		1EE79F10253E20DB005DFA46 /* MyTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTitleLabel.swift; sourceTree = "<group>"; };
+		1EE79F20253F63FB005DFA46 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		1EE79F26253F6608005DFA46 /* WifiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,7 @@
 			children = (
 				1EA9B8CD253C86710041E705 /* WiFiTableVC.swift */,
 				1EA9B8FB253CA6A80041E705 /* AddWifiVC.swift */,
+				1EE79F20253F63FB005DFA46 /* DetailVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 		1EA9B8EB253C9A4A0041E705 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1EE79F25253F65ED005DFA46 /* ImageView */,
 				1E2B5866253CD5F400124991 /* Label */,
 				1E2B585B253CD1EE00124991 /* TextField */,
 				1EA9B8EC253C9A510041E705 /* Cells */,
@@ -234,6 +240,14 @@
 				1EA9B8F6253C9F620041E705 /* Colors.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		1EE79F25253F65ED005DFA46 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				1EE79F26253F6608005DFA46 /* WifiImageView.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,8 +383,10 @@
 				1EA9B8F7253C9F620041E705 /* Colors.swift in Sources */,
 				1EA9B8E4253C92100041E705 /* CoreDataStack.swift in Sources */,
 				1E2B5884253DE4EF00124991 /* Wifi+Convenience.swift in Sources */,
+				1EE79F21253F63FB005DFA46 /* DetailVC.swift in Sources */,
 				1EA9B8CE253C86710041E705 /* WiFiTableVC.swift in Sources */,
 				1EE79F11253E20DB005DFA46 /* MyTitleLabel.swift in Sources */,
+				1EE79F27253F6608005DFA46 /* WifiImageView.swift in Sources */,
 				1EA9B899253C7A9B0041E705 /* WiFiList.xcdatamodeld in Sources */,
 				1E2B5862253CD2C700124991 /* MyTextFieldView.swift in Sources */,
 				1E2B5870253CD85800124991 /* CALayer+Ext.swift in Sources */,

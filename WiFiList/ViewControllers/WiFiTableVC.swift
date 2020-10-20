@@ -17,6 +17,13 @@ class WiFiTableVC: UIViewController {
 
     private let trashButton = UIButton(type: .system)
     
+    var selectedRowsCount: Int = 0 {
+        didSet {
+            addButtonColor(selectedRowsCount)
+            title = selectedRowsCount != 0 ? "\(selectedRowsCount) Selected" : "WiFi List"
+        }
+    }
+    
     lazy var fetchedResultsController: NSFetchedResultsController<Wifi> = {
         let fethRequest: NSFetchRequest<Wifi> = Wifi.fetchRequest()
         let favoriteDescriptor = NSSortDescriptor(keyPath: \Wifi.isFavorite, ascending: false)
@@ -44,6 +51,19 @@ class WiFiTableVC: UIViewController {
         configureRoundButton()
     
     }
+    
+    private func addButtonColor(_ selectedRows: Int) {
+        if selectedRows > 0 {
+            UIView.animate(withDuration: 0.1) {
+                self.addButton.tintColor = .systemPink
+            }
+        } else {
+            UIView.animate(withDuration: 0.1) {
+                self.addButton.tintColor = UIColor.secondaryLabel.withAlphaComponent(0.1)
+            }
+        }
+    }
+
     
     func configureNavigationController() {
         guard let navigationController = navigationController else {return}
@@ -105,8 +125,51 @@ class WiFiTableVC: UIViewController {
             present(navController, animated: true)
            
         }else {
-            
+            deleteSelectedWiFiNetworks()
         }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        wifiTableView.setEditing(editing, animated: animated)
+
+        if editing {
+            morphAddButton(basedOn: editing)
+        } else {
+            title = "WiFi List"
+            morphAddButton(basedOn: editing)
+        }
+    }
+    
+    private func morphAddButton(basedOn editing: Bool) {
+        if editing {
+            UIView.animate(withDuration: 0.3) {
+                self.addButton.tintColor = UIColor.secondaryLabel.withAlphaComponent(0.1)
+                let configuration = UIImage.SymbolConfiguration(pointSize: 50, weight: .light)
+                self.addButton.setImage(UIImage(systemName: "trash.circle.fill", withConfiguration: configuration), for: .normal)
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.addButton.tintColor = .myGlobalTint
+                let configuration = UIImage.SymbolConfiguration(pointSize: 50, weight: .light)
+                self.addButton.setImage(UIImage(systemName: "plus.circle.fill", withConfiguration: configuration), for: .normal)
+            }
+        }
+    }
+    
+    private func deleteSelectedWiFiNetworks() {
+        guard let selectedIndexPaths = wifiTableView.indexPathsForSelectedRows else { return }
+        var wifiObjects: [Wifi] = []
+        selectedIndexPaths.forEach { wifiObjects.append(fetchedResultsController.object(at: $0)) }
+
+        presentSecondaryDeleteAlertMultiple(count: selectedIndexPaths.count, deleteHandler: { _ in
+            for wifi in wifiObjects {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    WifiController.shared.delete(wifi: wifi)
+                }
+            }
+            self.setEditing(false, animated: true)
+        })
     }
 
 }
@@ -128,6 +191,45 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
         self.setEditing(true, animated: true)
     }
 
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let wifi = fetchedResultsController.object(at: indexPath)
+        let cell = wifiTableView.cellForRow(at: indexPath) as? WifiCell
+       
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { action, view, completion in
+            WifiController.shared.updateFavorite(wifi: wifi, isFavorite: !wifi.isFavorite)
+            cell?.updateViews()
+            completion(true)
+        }
+
+        let star = UIImage(systemName: "star.fill")?.withTintColor(.myGlobalTint, renderingMode: .alwaysOriginal)
+        let starSlash = UIImage(systemName: "star.slash.fill")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal)
+        let starImage = wifi.isFavorite ? starSlash : star
+        favoriteAction.backgroundColor = .myBackground
+        favoriteAction.image = starImage
+
+        let configuration = UISwipeActionsConfiguration(actions: [favoriteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "Delete") { (action, view, completion) in
+            let wifi = self.fetchedResultsController.object(at: indexPath)
+            self.presentSecondaryDeleteAlertSingle(wifi: wifi, deleteHandler: { _ in
+                WifiController.shared.delete(wifi: wifi)
+            })
+            completion(true)
+        }
+
+        action.image = UIImage(systemName: "trash.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        action.backgroundColor = .myBackground
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
     func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView) {
         print("\(#function)")
     }
@@ -153,15 +255,19 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
             let wifi = fetchedResultsController.object(at: indexPath)
             let detailVC = DetailVC(with: wifi)
             navigationController?.pushViewController(detailVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
         } else {
-            //selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
+            selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
         }
+        
+        
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if isEditing {
-            //selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
+            selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
         }
+        
     }
     
 }
@@ -183,20 +289,20 @@ extension WiFiTableVC: NSFetchedResultsControllerDelegate {
         wifiTableView.endUpdates()
     }
 
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-//                    didChange sectionInfo: NSFetchedResultsSectionInfo,
-//                    atSectionIndex sectionIndex: Int,
-//                    for type: NSFetchedResultsChangeType) {
-//        let indexSet = IndexSet([sectionIndex])
-//        switch type {
-//        case .insert:
-//            wifiTableView.insertSections(indexSet, with: .fade)
-//        case .delete:
-//            wifiTableView.deleteSections(indexSet, with: .fade)
-//        default:
-//            print(#line, #file, "unexpected NSFetchedResultsChangeType: \(type)")
-//        }
-//    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet([sectionIndex])
+        switch type {
+        case .insert:
+            wifiTableView.insertSections(indexSet, with: .fade)
+        case .delete:
+            wifiTableView.deleteSections(indexSet, with: .fade)
+        default:
+            print(#line, #file, "unexpected NSFetchedResultsChangeType: \(type)")
+        }
+    }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any,

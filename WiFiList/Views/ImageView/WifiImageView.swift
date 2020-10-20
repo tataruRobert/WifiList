@@ -79,13 +79,13 @@ class WiFiImageView: UIImageView {
         // Get the output CIImage
         guard let outputCIImage = maskToAlphaFilter.outputImage else { return nil}
         
-
         // Do some processing to get the UIImage
         let context = CIContext()
         guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return nil}
         let processedImage = UIImage(cgImage: cgImage)
         let image = UIImageView(image: processedImage)
         image.tintImage(color: .myGlobalTint)
+        
         return image.image
     }
 

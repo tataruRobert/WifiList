@@ -131,7 +131,7 @@ class WifiCell: UITableViewCell {
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            container.heightAnchor.constraint(equalToConstant: 50)
+            container.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -198,6 +198,5 @@ class WifiCell: UITableViewCell {
         }
 
         configureIconImageView()
-        //configureLockImageView()
     }
 }

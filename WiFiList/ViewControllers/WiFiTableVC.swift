@@ -120,8 +120,6 @@ class WiFiTableVC: UIViewController {
             
             let navController = UINavigationController(rootViewController: addWifiVC)
             navController.modalPresentationStyle = .automatic
-                
-
             present(navController, animated: true)
            
         }else {
@@ -191,27 +189,6 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
         self.setEditing(true, animated: true)
     }
 
-    func tableView(_ tableView: UITableView,
-                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let wifi = fetchedResultsController.object(at: indexPath)
-        let cell = wifiTableView.cellForRow(at: indexPath) as? WifiCell
-       
-        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { action, view, completion in
-            WifiController.shared.updateFavorite(wifi: wifi, isFavorite: !wifi.isFavorite)
-            cell?.updateViews()
-            completion(true)
-        }
-
-        let star = UIImage(systemName: "star.fill")?.withTintColor(.myGlobalTint, renderingMode: .alwaysOriginal)
-        let starSlash = UIImage(systemName: "star.slash.fill")?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal)
-        let starImage = wifi.isFavorite ? starSlash : star
-        favoriteAction.backgroundColor = .myBackground
-        favoriteAction.image = starImage
-
-        let configuration = UISwipeActionsConfiguration(actions: [favoriteAction])
-        configuration.performsFirstActionWithFullSwipe = true
-        return configuration
-    }
     
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -230,9 +207,7 @@ extension WiFiTableVC: UITableViewDataSource, UITableViewDelegate {
         return configuration
     }
     
-    func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView) {
-        print("\(#function)")
-    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let backgroundView: UIView = {

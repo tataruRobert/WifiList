@@ -112,8 +112,7 @@ class MyTextFieldView: UIView, UITextFieldDelegate {
         layer.cornerCurve = .continuous
     }
 
-    #warning("Place textField and button in stackview and make sure to set priority and compression resistence on eye button")
-    
+
     private func configureTextField() {
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false

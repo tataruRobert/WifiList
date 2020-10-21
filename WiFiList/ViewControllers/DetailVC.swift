@@ -11,17 +11,19 @@ class DetailVC: UIViewController {
     
     private let wifi: Wifi
     private var qrImageView: WiFiImageView
+    private var infoView: InfoView
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavController()
         configureView()
-        // Do any additional setup after loading the view.
+        configureWifiInfoView()
     }
     
     init(with wifi: Wifi) {
         self.wifi = wifi
         self.qrImageView = WiFiImageView(with: wifi)
+        self.infoView = InfoView(with: wifi)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,6 +68,16 @@ class DetailVC: UIViewController {
 
 //        let interaction = UIContextMenuInteraction(delegate: self)
 //        imageView.addInteraction(interaction)
+    }
+    
+    private func configureWifiInfoView() {
+        view.addSubview(infoView)
+
+        NSLayoutConstraint.activate([
+            infoView.topAnchor.constraint(equalTo: qrImageView.bottomAnchor, constant: 30),
+            infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        ])
     }
     
 }
